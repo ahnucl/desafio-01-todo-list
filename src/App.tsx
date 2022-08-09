@@ -3,6 +3,15 @@ import styles from './App.module.css'
 
 import './global.css'
 
+/**
+ * TODO: (irônico)
+ * 1. Adicionar ícones botões ( + e lixeira)
+ * 2. Estilizar App
+ * 3. Verificar necessidade de componentizar esse arquivo
+ * 4. Adicionar estado
+ * 5. Criar tela para lista vazia
+ */
+
 function App() {
 
   return (
