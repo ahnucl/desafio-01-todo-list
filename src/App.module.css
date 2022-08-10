@@ -1,3 +1,55 @@
+.wrapper {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.newTask {
+  max-height: 54px; /* Não sei o que é 'hug content' no Figma*/
+  display: grid;
+  grid-template-columns: 1fr 5.625rem;
+  gap: 0.5rem;
+  margin-top: calc(0px - 54px/2);
+  align-items: center;
+}
+
+.newTask input {
+  border-radius: 8px;
+  padding: 1rem;
+  flex: 1;
+  gap: 0.5rem;
+  background: var(--gray-500);
+  border: solid 1px var(--gray-700);
+  color: var(--gray-100);
+
+  transition: border 0.3s;
+}
+
+.newTask input::placeholder {
+  color: var(--gray-300);
+}
+
+.newTask input:focus {
+  outline: none;
+  border: solid 1px var(--purple-dark);
+}
+
+.newTask button {
+  max-height: 52px; /* Qual outra estratégia poderia ser usada? */
+  background: var(--blue-dark);
+  color: var(--gray-100);
+  
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+
+  transition: background-color 0.3s;
+}
+
+.newTask button:hover {
+  background: var(--blue);
+}
+
 .todoList {
 
 }
+
