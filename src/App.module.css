@@ -92,3 +92,22 @@
 
 }
 
+.todo {
+  display: flex;
+}
+
+.todo input[type=checkbox] {
+
+}
+
+.todo input[type=checkbox]:hover {
+
+}
+
+.todo button {
+
+}
+
+.todo button:hover {
+  
+}

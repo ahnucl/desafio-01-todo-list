@@ -10,7 +10,8 @@ import './global.css'
  * 1. Adicionar ícones botões ( + e lixeira)
  * 2. Estilizar App
  *  2.1 newTask - ok
- *  2.2 info
+ *  2.2 info - ok 
+ *    2.2.1 problema nas cores da logo e desse elemento - ok (era o forçar tema escuro do browser)
  *  2.3 todoList
  * 3. Verificar necessidade de componentizar esse arquivo
  * 4. Adicionar estado
