@@ -1,5 +1,6 @@
 import { Header } from "./components/Header";
 import plus from './assets/plus.svg';
+import trash from './assets/trash.svg';
 
 import styles from './App.module.css'
 
@@ -27,7 +28,7 @@ function App() {
       <div className={styles.wrapper}>
 
         <div className={styles.newTask}>
-          <input placeholder="Adicione uma tarefa" />
+          <input placeholder="Adicione uma nova tarefa" />
           <button>
             Criar 
             <img src={plus} alt="plus icon" />
@@ -48,33 +49,53 @@ function App() {
 
         <div className={styles.todoList}>
           <div className={styles.todo}>
-            <input type="checkbox" />
-            <div>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
-            <button>X</button>
+            <div className={styles.checkboxContainer}>
+              <input type="checkbox" />
+            </div>
+            <div className={styles.todoText}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
+            <button>
+              <img src={trash} alt="plus icon" />
+            </button>
           </div>
 
-          <div>
-            <input type="checkbox" />
-            <div>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
-            <button>X</button>
+          <div className={styles.todo}>
+            <div className={styles.checkboxContainer}>
+              <input type="checkbox" />
+            </div>
+            <div className={styles.todoText}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
+            <button>
+              <img src={trash} alt="plus icon" />
+            </button>
           </div>
 
-          <div>
-            <input type="checkbox" />
-            <div>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
-            <button>X</button>
+          <div className={styles.todo}>
+            <div className={styles.checkboxContainer}>
+              <input type="checkbox" />
+            </div>
+            <div className={styles.todoText}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
+            <button>
+              <img src={trash} alt="plus icon" />
+            </button>
           </div>
 
-          <div>
-            <input type="checkbox" checked/>
-            <div>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
-            <button>X</button>
+          <div className={styles.todo}>
+            <div className={styles.checkboxContainer}>
+              <input type="checkbox" checked/>
+            </div>
+            <div className={styles.todoText}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
+            <button>
+              <img src={trash} alt="plus icon" />
+            </button>
           </div>
 
-          <div>
-            <input type="checkbox" checked/>
-            <div>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
-            <button>X</button>
+          <div className={styles.todo}>
+            <div className={styles.checkboxContainer}>
+              <input type="checkbox" checked/>
+            </div>
+            <div className={styles.todoText}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</div>
+            <button>
+              <img src={trash} alt="plus icon" />
+            </button>
           </div>
         </div>
       </div>
