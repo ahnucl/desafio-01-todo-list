@@ -1,4 +1,6 @@
 import { Header } from "./components/Header";
+import plus from './assets/plus.svg';
+
 import styles from './App.module.css'
 
 import './global.css'
@@ -25,7 +27,10 @@ function App() {
 
         <div className={styles.newTask}>
           <input placeholder="Adicione uma tarefa" />
-          <button>Criar +</button>
+          <button>
+            Criar 
+            <img src={plus} alt="plus icon" />
+          </button>
         </div>
 
         <div className={styles.info}>
