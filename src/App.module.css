@@ -198,3 +198,20 @@
   /* Gambiarra... O certo deveria ser usar um componente de ícone, o do phosphor é parecido */
   filter: invert(69%) sepia(76%) saturate(4090%) hue-rotate(322deg) brightness(90%) contrast(96%);
 }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.empty img {
+  height: 3.5rem;
+  margin-bottom: 1rem;
+  
+}
+
+.empty strong {
+  display: block;
+}

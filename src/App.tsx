@@ -2,6 +2,7 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import { Header } from "./components/Header";
 import plus from './assets/plus.svg';
 import trash from './assets/trash.svg';
+import clipboard from './assets/Clipboard.svg'
 
 import styles from './App.module.css'
 
@@ -16,7 +17,7 @@ import './global.css'
  *    2.2.1 problema nas cores da logo e desse elemento - ok (era o forçar tema escuro do browser)
  *  2.3 todoList - ok
  * 3. Verificar necessidade de componentizar esse arquivo
- * 4. Adicionar estado
+ * 4. Adicionar estado - ok
  * 5. Criar tela para lista vazia
  */
 
@@ -62,6 +63,12 @@ function App() {
   const getDescriptionTextClass = (checked: boolean) => 
     styles.todoText + (checked ? ` ${styles.checkedTodoText}` : '');
 
+  const createdTodosAmount = todoList.length;
+
+  const doneTodosAmount = todoList.reduce((acc, cur) => cur.done ? acc + 1 : acc, 0);
+
+  const doneTodosString = createdTodosAmount ? `${doneTodosAmount} de ${createdTodosAmount}` : 0;
+
   return (
     <div>
       <Header />
@@ -82,27 +89,34 @@ function App() {
         <div className={styles.info}>
           <div className={styles.created}>
             Tarefas criadas
-            <span>5</span>
+            <span>{createdTodosAmount}</span>
           </div>
 
           <div className={styles.done}>
             Concluídas
-            <span>2 de 5</span>
+            <span>{doneTodosString}</span>
           </div>
         </div>
 
         <div className={styles.todoList}>
-          {todoList.map((todo, index) => 
-            <div className={styles.todo} key={todo.description}>
-              <div className={styles.checkboxContainer}>
-                <input type="checkbox" checked={todo.done} onChange={(e) => handleTodoToggle(index)}/>
+          {todoList.length ?
+            todoList.map((todo, index) => 
+              <div className={styles.todo} key={todo.description}>
+                <div className={styles.checkboxContainer}>
+                  <input type="checkbox" checked={todo.done} onChange={(e) => handleTodoToggle(index)}/>
+                </div>
+                <div className={getDescriptionTextClass(todo.done)}>{todo.description}</div>
+                <button>
+                  <img src={trash} alt="trash icon" onClick={() => handleDeleteTodo(index)}/>
+                </button>
               </div>
-              <div className={getDescriptionTextClass(todo.done)}>{todo.description}</div>
-              <button>
-                <img src={trash} alt="trash icon" onClick={() => handleDeleteTodo(index)}/>
-              </button>
+            ) :
+            <div className={styles.empty}>
+              <img src={clipboard} alt="clipboard icon" />
+              <strong>Você ainda não tem tarefas cadastradas</strong> 
+              <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
-            )}
+          }
         </div>
       </div>
     </div>
