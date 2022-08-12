@@ -44,11 +44,17 @@ function App() {
     setTodoList([...todoList, newTodo]);
   }
 
-  function handleTodoToggle(todoIndex: number) {
+  function handleTodoToggle(todoToToggleIndex: number) {
     const newTodoList = todoList.map((todo, index) => ({
-      done: index === todoIndex ? !todo.done : todo.done,
+      done: index === todoToToggleIndex ? !todo.done : todo.done,
       description: todo.description,
     }));
+
+    setTodoList(newTodoList);
+  }
+
+  function handleDeleteTodo(todoToDeleteIndex: number) {
+    const newTodoList = todoList.filter((_, index) => index !== todoToDeleteIndex);
 
     setTodoList(newTodoList);
   }
@@ -93,7 +99,7 @@ function App() {
               </div>
               <div className={getDescriptionTextClass(todo.done)}>{todo.description}</div>
               <button>
-                <img src={trash} alt="plus icon" />
+                <img src={trash} alt="trash icon" onClick={() => handleDeleteTodo(index)}/>
               </button>
             </div>
             )}
