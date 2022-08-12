@@ -61,33 +61,6 @@
   width: 1rem;
 }
 
-.info {
-  margin: 4rem 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 0.875rem;
-}
-
-.created {
-  color: var(--blue);
-}
-
-.done {
-  color: var(--purple);
-}
-
-.created span, 
-.done span {
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
-  background: var(--gray-400);
-  color: var(--gray-200);
-  padding: 0.125rem 0.5rem;
-  position: relative;
-  border-radius: 10px;
-}
-
 .empty {
   display: flex;
   flex-direction: column;

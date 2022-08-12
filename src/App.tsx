@@ -1,6 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { Header } from "./components/Header";
 import { Todo } from "./components/Todo";
+import { Info } from "./components/Info";
 import plus from './assets/plus.svg';
 import clipboard from './assets/Clipboard.svg'
 
@@ -51,8 +52,6 @@ function App() {
 
   const doneTodosAmount = todoList.reduce((acc, cur) => cur.done ? acc + 1 : acc, 0);
 
-  const doneTodosString = createdTodosAmount ? `${doneTodosAmount} de ${createdTodosAmount}` : 0;
-
   return (
     <div>
       <Header />
@@ -70,17 +69,10 @@ function App() {
           </button>
         </form>
 
-        <div className={styles.info}>
-          <div className={styles.created}>
-            Tarefas criadas
-            <span>{createdTodosAmount}</span>
-          </div>
-
-          <div className={styles.done}>
-            Concluídas
-            <span>{doneTodosString}</span>
-          </div>
-        </div>
+        <Info 
+          createdTodosAmount={createdTodosAmount}
+          doneTodosAmount={doneTodosAmount}
+        />
 
         <div className={styles.todoList}>
           {todoList.length ?
