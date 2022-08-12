@@ -1,7 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { Header } from "./components/Header";
+import { Todo } from "./components/Todo";
 import plus from './assets/plus.svg';
-import trash from './assets/trash.svg';
 import clipboard from './assets/Clipboard.svg'
 
 import styles from './App.module.css'
@@ -60,9 +60,6 @@ function App() {
     setTodoList(newTodoList);
   }
 
-  const getDescriptionTextClass = (checked: boolean) => 
-    styles.todoText + (checked ? ` ${styles.checkedTodoText}` : '');
-
   const createdTodosAmount = todoList.length;
 
   const doneTodosAmount = todoList.reduce((acc, cur) => cur.done ? acc + 1 : acc, 0);
@@ -101,15 +98,13 @@ function App() {
         <div className={styles.todoList}>
           {todoList.length ?
             todoList.map((todo, index) => 
-              <div className={styles.todo} key={todo.description}>
-                <div className={styles.checkboxContainer}>
-                  <input type="checkbox" checked={todo.done} onChange={(e) => handleTodoToggle(index)}/>
-                </div>
-                <div className={getDescriptionTextClass(todo.done)}>{todo.description}</div>
-                <button>
-                  <img src={trash} alt="trash icon" onClick={() => handleDeleteTodo(index)}/>
-                </button>
-              </div>
+              <Todo 
+                description={todo.description}
+                done={todo.done}
+                onChange={() => handleTodoToggle(index)}
+                onDelete={() => handleDeleteTodo(index)}
+                key={todo.description}
+              />
             ) :
             <div className={styles.empty}>
               <img src={clipboard} alt="clipboard icon" />
