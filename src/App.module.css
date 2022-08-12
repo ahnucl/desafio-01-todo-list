@@ -87,10 +87,10 @@
   position: relative;
   border-radius: 10px;
 }
-
+/* 
 .todoList {
 
-}
+} */
 
 .todo {
   display: flex;
@@ -102,6 +102,9 @@
   
   color: var(--gray-100);
   font-size: 0.875rem;
+  
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo + .todo {
@@ -110,6 +113,12 @@
 
 .todoText {
   margin: 0 0.75rem;
+  flex: 1;
+}
+
+.checkedTodoText {
+  color: var(--gray-300);
+  text-decoration: line-through;
 }
 
 .checkboxContainer {
@@ -123,6 +132,7 @@
   -moz-appearance: none;
   appearance: none;
   
+  cursor: pointer;
   height: 100%;
   width: 100%;
   border: 2px solid var(--blue);
@@ -163,6 +173,8 @@
 }
 
 .todo button {
+  cursor: pointer;
+
   height: 24px;
   width: 24px;
 
