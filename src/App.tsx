@@ -44,9 +44,9 @@ function App() {
     setTodoList([...todoList, newTodo]);
   }
 
-  function handleTodoToggle(event: ChangeEvent<HTMLInputElement>, todoIndex: number) {
+  function handleTodoToggle(todoIndex: number) {
     const newTodoList = todoList.map((todo, index) => ({
-      done: index === todoIndex ? event.target.checked : todo.done,
+      done: index === todoIndex ? !todo.done : todo.done,
       description: todo.description,
     }));
 
@@ -54,7 +54,7 @@ function App() {
   }
 
   const getDescriptionTextClass = (checked: boolean) => 
-    checked ? `${styles.todoText} ${styles.checkedTodoText}` : styles.todoText;
+    styles.todoText + (checked ? ` ${styles.checkedTodoText}` : '');
 
   return (
     <div>
@@ -89,7 +89,7 @@ function App() {
           {todoList.map((todo, index) => 
             <div className={styles.todo} key={todo.description}>
               <div className={styles.checkboxContainer}>
-                <input type="checkbox" checked={todo.done} onChange={(e) => handleTodoToggle(e, index)}/>
+                <input type="checkbox" checked={todo.done} onChange={(e) => handleTodoToggle(index)}/>
               </div>
               <div className={getDescriptionTextClass(todo.done)}>{todo.description}</div>
               <button>
